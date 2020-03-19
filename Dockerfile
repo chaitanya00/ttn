@@ -5,6 +5,8 @@ nginx \
 vim \
 wget \
 curl \
+net-tools\
+awscli
 EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
 
