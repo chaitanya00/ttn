@@ -1,0 +1,21 @@
+- name: downloading wordpress
+  raw: wget -P /var/www/html/ https://wordpress.org/latest.tar.gz
+
+- name: extracting wordpress code
+  raw: tar -xzf /var/www/html/latest.tar.gz -C /var/www/html
+
+- name: changing permissions for wordpress to make changes
+  raw: chmod 777 /var/www/html/wordpress/
+
+- name: removing unnecessary file in /var/www/html
+  file:
+    state: absent
+    path: "/var/www/html/latest.tar.gz"
+    
+- name: removing unnecessary file in /etc/nginx/sites-enabled  
+  file:
+    state: absent
+    path: "/etc/nginx/sites-enabled/default"
+
+- name: Restarting Nginx
+  raw: service nginx reload

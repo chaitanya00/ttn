@@ -1,0 +1,11 @@
+- name: Installing php-fpm
+  apt: 
+    name: php-fpm
+    state: present
+    update-cache: yes
+
+- name: Installing php-mysql
+  apt:
+    name: php-mysql
+    state: present
+    update-cache: yes

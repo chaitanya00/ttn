@@ -1,0 +1,15 @@
+- name: Installing nginx
+  apt:
+    name: nginx
+    state: present
+    update-cache: yes
+- name: deploy WordPress Nginx virtual host
+  template: 
+    src: wordpress.j2
+    dest: "/etc/nginx/sites-available/wordpress"
+    owner: "ubuntu"
+    group: "ubuntu"
+    mode: 0777
+- name: creating soft link in sites-enabled
+  raw: test -L /etc/nginx/sites-enabled/wordpress || ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/wordpress
+

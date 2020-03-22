@@ -1,0 +1,5 @@
+- name: Installing Python
+  apt:
+    name: "python"
+    state: present
+    update-cache: yes
