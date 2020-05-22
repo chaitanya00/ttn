@@ -2,7 +2,7 @@ FROM ubuntu
 LABEL maintainer="Chaitanya"
 RUN apt-get update -y && apt-get install -y \
 nginx \
-vim \
+nano \
 wget \
 curl \
 net-tools
